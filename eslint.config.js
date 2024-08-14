@@ -22,7 +22,6 @@ export default [
       'react/boolean-prop-naming': ['error', { validateNested: true }],
       'react/checked-requires-onchange-or-readonly': 'error',
       'react/destructuring-assignment': ['error', 'always'],
-      'react/forbid-component-props': 'error',
       'react/forbid-dom-props': 'error',
       'react/forbid-elements': 'error',
       'react/forbid-foreign-prop-types': 'error',

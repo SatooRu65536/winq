@@ -1,13 +1,15 @@
 import { Outlet } from 'react-router-dom';
+import SideBar from '@/components/base/SideBar';
+import styles from './index.module.scss';
 import '@/styles/global.scss';
-import { useEffect } from 'react';
 
 export default function BaseLayout() {
-  useEffect(() => {});
-
   return (
-    <main>
-      <Outlet />
-    </main>
+    <>
+      <SideBar />
+      <main className={styles.main}>
+        <Outlet />
+      </main>
+    </>
   );
 }

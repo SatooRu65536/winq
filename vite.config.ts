@@ -36,6 +36,7 @@ export default defineConfig(async () => ({
         additionalData: `
           @use '${resolve(__dirname, 'src/styles/variables.scss')}' as *;
           @use '${resolve(__dirname, 'src/styles/colors.scss')}' as *;
+          @use '${resolve(__dirname, 'src/styles/fonts.scss')}' as *;
         `,
       },
     },

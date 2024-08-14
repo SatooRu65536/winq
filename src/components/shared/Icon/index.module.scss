@@ -1,0 +1,28 @@
+.icon {
+  vertical-align: sub;
+
+  &.padding {
+    padding: 0 5px;
+  }
+
+  &.xs > svg {
+    height: $font-size-xs;
+    width: $font-size-xs;
+  }
+  &.sm > svg {
+    height: $font-size-sm;
+    width: $font-size-sm;
+  }
+  &.md > svg {
+    height: $font-size-md;
+    width: $font-size-md;
+  }
+  &.lg > svg {
+    height: $font-size-lg;
+    width: $font-size-lg;
+  }
+  &.xl > svg {
+    height: $font-size-xl;
+    width: $font-size-xl;
+  }
+}
