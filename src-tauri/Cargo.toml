@@ -25,3 +25,4 @@ specta-typescript = { version = "0.0.7" }
 tauri-specta = { version = "2.0.0-rc.12", features = ["derive", "typescript"] }
 specta-jsdoc = { version = "0.0.7" }
 serialport = "4.5.0"
+tauri-plugin-window-state = "2.0.0-rc"
