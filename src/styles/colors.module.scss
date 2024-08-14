@@ -1,0 +1,20 @@
+:export {
+  primaryColor: $primary-color;
+  secondaryColor: $secondary-color;
+
+  backgroundColor: $background-color;
+  textColor: $text-color;
+  borderColor: $border-color;
+
+  successColor: $success-color;
+  dangerColor: $danger-color;
+  warningColor: $warning-color;
+  infoColor: $info-color;
+
+  onPrimaryCorlo: $on-primary-color;
+  onSecondaryColor: $on-secondary-color;
+  onSuccessColor: $on-success-color;
+  onDangerColor: $on-danger-color;
+  onWarningColor: $on-warning-color;
+  onInfoColor: $on-info-color;
+}

@@ -1,0 +1,27 @@
+[package]
+name = "winq"
+version = "0.1.0"
+description = "A Tauri App"
+authors = ["SatooRu65536"]
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[lib]
+name = "winq_lib"
+crate-type = ["lib", "cdylib", "staticlib"]
+
+[build-dependencies]
+tauri-build = { version = "2.0.0-rc", features = [] }
+
+[dependencies]
+tauri = { version = "=2.0.0-rc.0", features = [] }
+tauri-plugin-shell = "2.0.0-rc"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+specta = { version = "2.0.0-rc.20" }
+specta-typescript = { version = "0.0.7" }
+tauri-specta = { version = "2.0.0-rc.12", features = ["derive", "typescript"] }
+specta-jsdoc = { version = "0.0.7" }
+serialport = "4.5.0"
