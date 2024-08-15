@@ -8,12 +8,13 @@
   font-size: 14px;
   font-family: 'Ubuntu', sans-serif;
   font-weight: lighter;
+  overflow: hidden;
 }
 
 #root {
-  display: flex;
-  flex-direction: row;
   min-height: 100vh;
+  display: grid;
+  grid-template-columns: $sidebar-width 1fr;
 }
 
 a {

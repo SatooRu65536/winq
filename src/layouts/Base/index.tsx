@@ -8,7 +8,9 @@ export default function BaseLayout() {
     <>
       <SideBar />
       <main className={styles.main}>
-        <Outlet />
+        <div>
+          <Outlet />
+        </div>
       </main>
     </>
   );
