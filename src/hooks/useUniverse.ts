@@ -1,7 +1,7 @@
-import { useMemo, useState } from 'react';
+import { selectedUniverseChannelsAtom } from '@/stores/universeAtom';
+import { useAtom } from 'jotai';
+import { useMemo } from 'react';
 
-// チャンネルの数
-const CHANNEL_COUNT = 512;
 // チャンネルの値の範囲
 const CHANNNE_VALUE_MIN = 0;
 const CHANNNE_VALUE_MAX = 255;
@@ -12,9 +12,7 @@ export interface Channel {
 }
 
 export default function useUniverse() {
-  const [channels, setChannels] = useState<Channel[]>(
-    Array.from({ length: CHANNEL_COUNT }, (_, i) => ({ num: i + 1, value: 0 })),
-  );
+  const [channels, setChannels] = useAtom(selectedUniverseChannelsAtom);
 
   /**
    * チャンネルの値を設定する
@@ -28,7 +26,6 @@ export default function useUniverse() {
       setChannels((prevChannels) => {
         const clonedChannels = structuredClone(prevChannels);
         clonedChannels[channel - 1].value = clampedValue;
-        console.log(clonedChannels[0]);
         return clonedChannels;
       });
     },
