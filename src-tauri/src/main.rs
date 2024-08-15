@@ -3,13 +3,14 @@
 
 mod modules;
 
-use modules::open_dmx::dmx_start;
+use modules::open_dmx::{dmx_start, dmx_stop};
 use modules::port::find_port;
 use specta_typescript::Typescript;
 use tauri_specta::{collect_commands, Builder};
 
 fn main() {
-    let builder = Builder::<tauri::Wry>::new().commands(collect_commands![find_port, dmx_start]);
+    let builder =
+        Builder::<tauri::Wry>::new().commands(collect_commands![find_port, dmx_start, dmx_stop]);
 
     #[cfg(debug_assertions)]
     builder

@@ -8,9 +8,17 @@ export const commands = {
 async findPort() : Promise<string[]> {
     return await TAURI_INVOKE("find_port");
 },
-async dmxStart(portName: string, value: number) : Promise<Result<null, string>> {
+async dmxStart(portName: string, values: number[]) : Promise<Result<null, string>> {
     try {
-    return { status: "ok", data: await TAURI_INVOKE("dmx_start", { portName, value }) };
+    return { status: "ok", data: await TAURI_INVOKE("dmx_start", { portName, values }) };
+} catch (e) {
+    if(e instanceof Error) throw e;
+    else return { status: "error", error: e  as any };
+}
+},
+async dmxStop(portName: string) : Promise<Result<null, string>> {
+    try {
+    return { status: "ok", data: await TAURI_INVOKE("dmx_stop", { portName }) };
 } catch (e) {
     if(e instanceof Error) throw e;
     else return { status: "error", error: e  as any };
