@@ -16,8 +16,10 @@ pub fn find_port() -> Vec<String> {
         })
         .collect::<Vec<_>>();
 
-    usb_tty_ports
+    let port_names = usb_tty_ports
         .iter()
         .map(|p| p.port_name.clone())
-        .collect::<Vec<_>>()
+        .collect::<Vec<_>>();
+
+    port_names
 }

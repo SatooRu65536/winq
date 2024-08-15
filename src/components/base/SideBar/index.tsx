@@ -1,7 +1,7 @@
 import Icon from '@/components/shared/Icon';
 import styles from './index.module.scss';
-import { HomeOutline, SettingsOutline } from 'react-ionicons';
 import { Link } from 'react-router-dom';
+import IonIcon from '@reacticons/ionicons';
 
 interface Item {
   name: string;
@@ -12,12 +12,12 @@ interface Item {
 const items = [
   {
     name: 'HOME',
-    icon: <HomeOutline />,
+    icon: <IonIcon name="home-outline"  />,
     link: '/',
   },
   {
     name: 'SETTINGS',
-    icon: <SettingsOutline />,
+    icon: <IonIcon name="settings-outline" />,
     link: '/settings',
   },
 ] as const satisfies Item[];
@@ -27,7 +27,7 @@ export default function SideBar() {
     <aside className={styles.sidebar}>
       {items.map((item) => (
         <Link className={styles.item} key={item.name} to={item.link}>
-          <Icon icon={item.icon} size='lg' />
+          <Icon icon={item.icon} size="lg" />
           <span>{item.name}</span>
         </Link>
       ))}

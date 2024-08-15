@@ -1,4 +1,19 @@
-@import url('@/assets/fonts/Ubuntu-Bold.ttf');
-@import url('@/assets/fonts/Ubuntu-Medium.ttf');
-@import url('@/assets/fonts/Ubuntu-Regular.ttf');
-@import url('@/assets/fonts/Ubuntu-Light.ttf');
+@font-face {
+  font-family: 'Ubuntu';
+  src: url('@/assets/fonts/Ubuntu-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Ubuntu';
+  src: url('@/assets/fonts/Ubuntu-Medium.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Ubuntu';
+  src: url('@/assets/fonts/Ubuntu-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Ubuntu';
+  src: url('@/assets/fonts/Ubuntu-Light.ttf') format('truetype');
+}

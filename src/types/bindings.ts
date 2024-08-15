@@ -7,6 +7,14 @@
 export const commands = {
 async findPort() : Promise<string[]> {
     return await TAURI_INVOKE("find_port");
+},
+async dmxStart(portName: string, value: number) : Promise<Result<null, string>> {
+    try {
+    return { status: "ok", data: await TAURI_INVOKE("dmx_start", { portName, value }) };
+} catch (e) {
+    if(e instanceof Error) throw e;
+    else return { status: "error", error: e  as any };
+}
 }
 }
 
