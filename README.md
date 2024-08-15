@@ -1,7 +1,11 @@
-# Tauri + React + Typescript
+# winq
+winq is not a QLC+ clone.
+It is a new lighting control software that is designed to be simple and easy to use.
 
-This template should help get you started developing with Tauri, React and Typescript in Vite.
+# LICENSE
+[MIT LICENSE](./LICENSE)
 
-## Recommended IDE Setup
+## Dependencies
+This project includes code that is licensed under the MIT License. The original code has been modified. 
 
-- [VS Code](https://code.visualstudio.com/) + [Tauri](https://marketplace.visualstudio.com/items?itemName=tauri-apps.tauri-vscode) + [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer)
+The original MIT License and copyright notice are retained as required. The original work can be found [here](https://github.com/daveiator/open-dmx).
