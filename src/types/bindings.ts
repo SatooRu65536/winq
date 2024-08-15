@@ -5,9 +5,6 @@
 
 
 export const commands = {
-async findPort() : Promise<string[]> {
-    return await TAURI_INVOKE("find_port");
-},
 async dmxStart(portName: string, values: number[]) : Promise<Result<null, string>> {
     try {
     return { status: "ok", data: await TAURI_INVOKE("dmx_start", { portName, values }) };
@@ -19,6 +16,14 @@ async dmxStart(portName: string, values: number[]) : Promise<Result<null, string
 async dmxStop(portName: string) : Promise<Result<null, string>> {
     try {
     return { status: "ok", data: await TAURI_INVOKE("dmx_stop", { portName }) };
+} catch (e) {
+    if(e instanceof Error) throw e;
+    else return { status: "error", error: e  as any };
+}
+},
+async getUsbDevices() : Promise<Result<DeviceInfo[], string>> {
+    try {
+    return { status: "ok", data: await TAURI_INVOKE("get_usb_devices") };
 } catch (e) {
     if(e instanceof Error) throw e;
     else return { status: "error", error: e  as any };
@@ -36,7 +41,7 @@ async dmxStop(portName: string) : Promise<Result<null, string>> {
 
 /** user-defined types **/
 
-
+export type DeviceInfo = { port_name: string; product_name: string }
 
 /** tauri-specta globals **/
 

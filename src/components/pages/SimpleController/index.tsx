@@ -4,7 +4,7 @@ import Slider from './Slider';
 import { useEffect } from 'react';
 import { commands } from '@/types/bindings';
 import { useAtomValue } from 'jotai';
-import { selectedPortAtom } from '@/stores/portAtom';
+import { selectedPortAtom } from '@/stores/deviceAtom';
 
 export default function SimpleController() {
   const { channels, setChannel } = useUniverse();
