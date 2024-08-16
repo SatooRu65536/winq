@@ -33,8 +33,8 @@ export const sidebarItems = [
     icon: <IonIcon name="albums-outline" />,
   },
   {
-    name: 'IO-CONNECTION',
-    path: '/io-connection',
+    name: 'CONNECTION',
+    path: '/connection',
     element: <IoConnectionPage />,
     icon: <IonIcon name="caret-down-circle-outline" />,
   },

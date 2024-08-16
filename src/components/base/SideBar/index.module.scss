@@ -7,10 +7,29 @@
   flex-direction: column;
   gap: 12px;
 
-  .item {
+  .link {
     font-weight: 500;
     color: $text-color;
     text-decoration: none;
     font-size: $font-size-md;
+    position: relative;
+
+    &::before {
+      content: '';
+      width: 3px;
+      position: absolute;
+      left: -2px;
+      top: -4px;
+      bottom: -4px;
+      transition: all ease-out $transition-time;
+    }
+    
+    &:hover::before {
+      background-color: $primary-color;
+    }
+
+    &[data-active='true']::before {
+      background-color: $primary-dark-color;
+    }
   }
 }
