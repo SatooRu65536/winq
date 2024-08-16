@@ -5,6 +5,9 @@ import ErrorBoundaryPage from './pages/ErrorBoundary';
 import TopPage from './pages/Top';
 import SettingsPage from './pages/Settings';
 import SimpleControllerPage from './pages/SimpleController';
+import DevicesPage from './pages/Devices';
+import IoConnectionPage from './pages/IoConnection';
+import FunctionsPage from './pages/Functions';
 
 type PageItem = {
   name: string;
@@ -24,8 +27,26 @@ export const sidebarItems = [
     icon: <IonIcon name="settings-outline" />,
   },
   {
-    name: 'SIMPLE CONTROLLER',
-    path: '/simple-controll',
+    name: 'DEVICES',
+    path: '/devices',
+    element: <DevicesPage />,
+    icon: <IonIcon name="albums-outline" />,
+  },
+  {
+    name: 'IO-CONNECTION',
+    path: '/io-connection',
+    element: <IoConnectionPage />,
+    icon: <IonIcon name="caret-down-circle-outline" />,
+  },
+  {
+    name: 'FUNCTIONS',
+    path: '/functions',
+    element: <FunctionsPage />,
+    icon: <IonIcon name="hardware-chip-outline" />,
+  },
+  {
+    name: 'CONTROLLER',
+    path: '/controll',
     element: <SimpleControllerPage />,
     icon: <IonIcon name="game-controller-outline" />,
   },
