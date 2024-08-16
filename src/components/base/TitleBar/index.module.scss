@@ -1,0 +1,7 @@
+.titlebar {
+  background-color: $titlebar-color;
+  border-bottom: solid 1px $titlebar-border-color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

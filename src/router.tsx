@@ -5,6 +5,7 @@ import ErrorBoundaryPage from './pages/ErrorBoundary';
 import TopPage from './pages/Top';
 import SettingsPage from './pages/Settings';
 import SimpleControllerPage from './pages/SimpleController';
+import WindowLayout from './layouts/Window';
 
 type PageItem = {
   name: string;
@@ -33,13 +34,19 @@ export const sidebarItems = [
 
 export const router = createBrowserRouter([
   {
-    path: '/',
-    element: <TopPage />,
-  },
-  {
-    path: '/',
-    element: <BaseLayout />,
-    errorElement: <ErrorBoundaryPage />,
-    children: sidebarItems.filter((i) => i.element != undefined),
+    path: '',
+    element: <WindowLayout />,
+    children: [
+      {
+        path: '/',
+        element: <TopPage />,
+      },
+      {
+        path: '/',
+        element: <BaseLayout />,
+        errorElement: <ErrorBoundaryPage />,
+        children: sidebarItems.filter((i) => i.element != undefined),
+      },
+    ],
   },
 ]);
