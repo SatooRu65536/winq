@@ -31,7 +31,7 @@ export default function TopPage() {
         <Button onClick={handleCreateProject}>プロジェクトを新規作成</Button>
 
         <div className={styles.exist_projects}>
-          {projects.map((p) => (
+          {projects.slice(0, 5).map((p) => (
             <p key={p.name}>{p.name}</p>
           ))}
         </div>
