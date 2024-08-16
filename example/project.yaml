@@ -1,0 +1,17 @@
+Fixtures:
+  - Universe 1:
+      - Pocket Pro:
+        Manufacturer: American DJ
+        Model: Pocket Pro
+        Mode: 11 Channel
+        Address: 1
+        Channels: 11
+      - Jellyfish:
+        Manufacturer: American DJ
+        Model: Jellyfish IR
+        Mode: 28Ch Mode
+        Address: 12
+        Channels: 28
+
+# Functions:
+# TODO
