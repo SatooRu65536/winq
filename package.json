@@ -38,6 +38,7 @@
     "jiti": "1.21.6",
     "prettier": "3.3.3",
     "sass": "1.77.8",
+    "scss-reset": "1.4.2",
     "typed-scss-modules": "8.0.1",
     "typescript": "^5.2.2",
     "typescript-eslint": "8.1.0",

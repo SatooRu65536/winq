@@ -2,7 +2,7 @@ import { createBrowserRouter, RouteObject } from 'react-router-dom';
 import BaseLayout from './layouts/Base';
 import IonIcon from '@reacticons/ionicons';
 import ErrorBoundaryPage from './pages/ErrorBoundary';
-import HomePage from './pages/Home';
+import TopPage from './pages/Top';
 import SettingsPage from './pages/Settings';
 import SimpleControllerPage from './pages/SimpleController';
 
@@ -13,9 +13,8 @@ type PageItem = {
 
 export const sidebarItems = [
   {
-    name: 'HOME',
+    name: 'TOP',
     path: '/',
-    element: <HomePage />,
     icon: <IonIcon name="home-outline" />,
   },
   {
@@ -30,13 +29,17 @@ export const sidebarItems = [
     element: <SimpleControllerPage />,
     icon: <IonIcon name="game-controller-outline" />,
   },
-] as const satisfies PageItem[];
+] satisfies PageItem[];
 
 export const router = createBrowserRouter([
   {
     path: '/',
+    element: <TopPage />,
+  },
+  {
+    path: '/',
     element: <BaseLayout />,
     errorElement: <ErrorBoundaryPage />,
-    children: sidebarItems,
+    children: sidebarItems.filter((i) => i.element != undefined),
   },
 ]);

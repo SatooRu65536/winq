@@ -4644,6 +4644,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"scss-reset@npm:1.4.2":
+  version: 1.4.2
+  resolution: "scss-reset@npm:1.4.2"
+  checksum: 10c0/8b12701844029e3ba440c52c23b3fcc813a1e71dec8bb209992eed5bb70bf68296ce96c5f9c45d199ebe7c3585840b8e0be4ca01ff0ccf60db5dc1aaeba65929
+  languageName: node
+  linkType: hard
+
 "semver@npm:^6.3.1":
   version: 6.3.1
   resolution: "semver@npm:6.3.1"
@@ -5386,6 +5393,7 @@ __metadata:
     react-dom: "npm:^18.2.0"
     react-router-dom: "npm:6.26.0"
     sass: "npm:1.77.8"
+    scss-reset: "npm:1.4.2"
     typed-scss-modules: "npm:8.0.1"
     typescript: "npm:^5.2.2"
     typescript-eslint: "npm:8.1.0"

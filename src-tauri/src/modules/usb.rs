@@ -1,7 +1,8 @@
 use serde::{Deserialize, Serialize};
 use serialport::{available_ports, SerialPortType};
+use specta::Type;
 
-#[derive(Clone, Serialize, Deserialize, Debug, specta::Type)]
+#[derive(Clone, Serialize, Deserialize, Debug, Type)]
 pub struct DeviceInfo {
     port_name: String,
     product_name: String,

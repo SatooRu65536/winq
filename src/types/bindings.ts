@@ -28,6 +28,14 @@ async getUsbDevices() : Promise<Result<DeviceInfo[], string>> {
     if(e instanceof Error) throw e;
     else return { status: "error", error: e  as any };
 }
+},
+async getProjects() : Promise<Result<Project[], string>> {
+    try {
+    return { status: "ok", data: await TAURI_INVOKE("get_projects") };
+} catch (e) {
+    if(e instanceof Error) throw e;
+    else return { status: "error", error: e  as any };
+}
 }
 }
 
@@ -42,6 +50,7 @@ async getUsbDevices() : Promise<Result<DeviceInfo[], string>> {
 /** user-defined types **/
 
 export type DeviceInfo = { port_name: string; product_name: string }
+export type Project = { name: string; path: string }
 
 /** tauri-specta globals **/
 

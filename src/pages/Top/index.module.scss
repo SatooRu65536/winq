@@ -1,0 +1,42 @@
+.top {
+  width: fit-content;
+  height: fit-content;
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 100px;
+
+  & > * {
+    width: fit-content;
+  }
+
+  .logo {
+    width: 220px;
+  }
+
+  .project_setting {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    .exist_projects {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+
+      p {
+        transition: all ease-out $transition-time;
+        border-bottom: solid 1px transparent;
+
+        &:hover {
+          border-bottom: solid 1px $border-color;
+        }
+      }
+    }
+  }
+}
