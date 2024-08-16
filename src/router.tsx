@@ -4,7 +4,7 @@ import IonIcon from '@reacticons/ionicons';
 import ErrorBoundaryPage from './pages/ErrorBoundary';
 import TopPage from './pages/Top';
 import SettingsPage from './pages/Settings';
-import SimpleControllerPage from './pages/SimpleController';
+import ControllerPage from './pages/Controller';
 import DevicesPage from './pages/Devices';
 import IoConnectionPage from './pages/IoConnection';
 import FunctionsPage from './pages/Functions';
@@ -21,16 +21,10 @@ export const sidebarItems = [
     icon: <IonIcon name="home-outline" />,
   },
   {
-    name: 'SETTINGS',
-    path: '/settings',
-    element: <SettingsPage />,
-    icon: <IonIcon name="settings-outline" />,
-  },
-  {
-    name: 'DEVICES',
-    path: '/devices',
-    element: <DevicesPage />,
-    icon: <IonIcon name="albums-outline" />,
+    name: 'CONTROLLER',
+    path: '/controll',
+    element: <ControllerPage />,
+    icon: <IonIcon name="game-controller-outline" />,
   },
   {
     name: 'CONNECTION',
@@ -45,10 +39,16 @@ export const sidebarItems = [
     icon: <IonIcon name="hardware-chip-outline" />,
   },
   {
-    name: 'CONTROLLER',
-    path: '/controll',
-    element: <SimpleControllerPage />,
-    icon: <IonIcon name="game-controller-outline" />,
+    name: 'DEVICES',
+    path: '/devices',
+    element: <DevicesPage />,
+    icon: <IonIcon name="albums-outline" />,
+  },
+  {
+    name: 'SETTINGS',
+    path: '/settings',
+    element: <SettingsPage />,
+    icon: <IonIcon name="settings-outline" />,
   },
 ] satisfies PageItem[];
 

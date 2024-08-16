@@ -6,7 +6,7 @@ import { commands } from '@/types/bindings';
 import { useAtomValue } from 'jotai';
 import { selectedPortAtom } from '@/stores/deviceAtom';
 
-export default function SimpleController() {
+export default function Controller() {
   const { channels, setChannel } = useUniverse();
   const port = useAtomValue(selectedPortAtom);
 
