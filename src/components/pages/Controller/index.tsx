@@ -17,7 +17,7 @@ export default function Controller() {
     }
 
     (async () => {
-      await commands.dmxStart(
+      await commands.dmxSend(
         port,
         channels.map((channel) => channel.value),
       );
@@ -25,7 +25,7 @@ export default function Controller() {
 
     return () => {
       (async () => {
-        await commands.dmxStop(port);
+        await commands.dmxReset(port);
       })();
     };
   }, [port, channels]);

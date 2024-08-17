@@ -9,7 +9,7 @@ pub struct Project {
 
 #[tauri::command]
 #[specta::specta]
-pub fn get_projects() -> Result<Vec<Project>, String> {
+pub fn get_projects_() -> Result<Vec<Project>, String> {
     let mut projects: Vec<Project> = Vec::new();
 
     // TODO: プロジェクト一覧を取得する処理を実装する

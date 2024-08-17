@@ -10,7 +10,7 @@ pub struct DeviceInfo {
 
 #[tauri::command]
 #[specta::specta]
-pub fn get_usb_devices() -> Result<Vec<DeviceInfo>, String> {
+pub fn get_usb_devices_() -> Result<Vec<DeviceInfo>, String> {
     let mut usbdevice_list: Vec<DeviceInfo> = Vec::new();
 
     let ports = match available_ports() {

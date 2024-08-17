@@ -1,13 +1,15 @@
-use super::error;
-use super::error::{DMXChannelValidityError, DMXDisconnectionError};
-use super::thread::{ArcRwLock, ReadOnly};
 use serialport::SerialPort;
 use std::io::Write;
 use std::sync::mpsc;
 use std::thread;
 use std::time;
 
-pub const DMX_CHANNELS: usize = 512;
+use super::error::DMXChannelValidityError;
+use super::error::DMXDisconnectionError;
+use super::thread::ArcRwLock;
+use super::thread::ReadOnly;
+
+const DMX_CHANNELS: usize = 512;
 const TIME_BREAK_TO_DATA: time::Duration = time::Duration::new(0, 136_000);
 
 #[derive(Debug)]
@@ -20,12 +22,12 @@ pub struct DMXSerial {
 }
 
 impl DMXSerial {
-    fn check_valid_channel(channel: usize) -> Result<(), error::DMXChannelValidityError> {
+    fn check_valid_channel(channel: usize) -> Result<(), DMXChannelValidityError> {
         if channel > DMX_CHANNELS {
-            return Err(error::DMXChannelValidityError::TooHigh);
+            return Err(DMXChannelValidityError::TooHigh);
         }
         if channel < 1 {
-            return Err(error::DMXChannelValidityError::TooLow);
+            return Err(DMXChannelValidityError::TooLow);
         }
         Ok(())
     }

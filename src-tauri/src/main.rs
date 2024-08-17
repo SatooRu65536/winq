@@ -3,20 +3,19 @@
 
 const EXPORT_PATH: &str = "../src/types/bindings.ts";
 
-mod modules;
+mod commands;
+pub mod modules;
 
-use modules::file::get_projects;
-use modules::open_dmx::{dmx_start, dmx_stop};
-use modules::usb::get_usb_devices;
+use commands::{dmx_reset, dmx_send, get_projects, get_usb_devices};
 use specta_typescript::Typescript;
 use tauri_specta::{collect_commands, Builder};
 
 fn main() {
     let builder = Builder::<tauri::Wry>::new().commands(collect_commands![
-        dmx_start,
-        dmx_stop,
-        get_usb_devices,
-        get_projects
+        get_projects,
+        dmx_send,
+        dmx_reset,
+        get_usb_devices
     ]);
 
     #[cfg(debug_assertions)]

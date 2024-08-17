@@ -1,46 +1,12 @@
-//! [![Latest Release](https://img.shields.io/crates/v/open_dmx?style=for-the-badge)](https://crates.io/crates/open_dmx) [![Documentation](https://img.shields.io/docsrs/open_dmx?style=for-the-badge)](https://docs.rs/open_dmx) [![License](https://img.shields.io/crates/l/open_dmx?style=for-the-badge)]()
-//!
-//! A wrapper around the [**serial**] library to send **DMX data** over a [SerialPort].
-//!
-//! <br>
-//!
-//! ## Usage
-//!
-//! ```rust
-//! use open_dmx::DMXSerial;
-//!
-//! fn main() {
-//!    let mut dmx = DMXSerial::open("COM3").unwrap();
-//!   dmx.set_channels([255; 512]);
-//!   dmx.set_channel(1, 0).unwrap();
-//! }
-//! ```
-//!
-//! <br>
-//!
-//! ## Feature flags
-//!
-//! - `thread_priority` *(enabled by default)*- Tries to set the [thread] priority of the [SerialPort] to *`MAX`*
-//!
-//! [**serial**]: https://dcuddeback.github.io/serial-rs/serial/
-//! [SerialPort]: https://dcuddeback.github.io/serial-rs/serial_core/trait.SerialPort
-//! [thread]: std::thread
-//!
-
-use std::sync::Mutex;
-
-use dmx_serial::DMXSerial;
+use super::open_dmx::dmx_serial::DMXSerial;
 use once_cell::sync::Lazy;
-
-mod dmx_serial;
-mod error;
-mod thread;
+use std::sync::Mutex;
 
 static DMX_INSTANCE: Lazy<Mutex<Option<DMXSerial>>> = Lazy::new(|| Mutex::new(None));
 
 #[tauri::command]
 #[specta::specta]
-pub fn dmx_start(port_name: &str, values: Vec<u8>) -> Result<(), String> {
+pub fn dmx_send_(port_name: &str, values: Vec<u8>) -> Result<(), String> {
     let mut dmx_guard = DMX_INSTANCE.lock().unwrap();
 
     // DMXSerial インスタンスがまだ生成されていない場合、作成
@@ -68,7 +34,7 @@ pub fn dmx_start(port_name: &str, values: Vec<u8>) -> Result<(), String> {
 
 #[tauri::command]
 #[specta::specta]
-pub fn dmx_stop(port_name: &str) -> Result<(), String> {
+pub fn dmx_reset_(port_name: &str) -> Result<(), String> {
     let mut dmx_guard = DMX_INSTANCE.lock().unwrap();
 
     // DMXSerial インスタンスがまだ生成されていない場合、作成
@@ -92,7 +58,7 @@ pub fn dmx_stop(port_name: &str) -> Result<(), String> {
     Ok(())
 }
 
-fn vec_to_array(vec: Vec<u8>) -> Result<[u8; 512], &'static str> {
+pub fn vec_to_array(vec: Vec<u8>) -> Result<[u8; 512], &'static str> {
     if vec.len() != 512 {
         return Err("Vector must have exactly 512 elements.");
     }

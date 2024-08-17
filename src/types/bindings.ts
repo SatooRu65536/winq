@@ -5,17 +5,29 @@
 
 
 export const commands = {
-async dmxStart(portName: string, values: number[]) : Promise<Result<null, string>> {
+async getProjects() : Promise<Result<Project[], string>> {
     try {
-    return { status: "ok", data: await TAURI_INVOKE("dmx_start", { portName, values }) };
+    return { status: "ok", data: await TAURI_INVOKE("get_projects") };
 } catch (e) {
     if(e instanceof Error) throw e;
     else return { status: "error", error: e  as any };
 }
 },
-async dmxStop(portName: string) : Promise<Result<null, string>> {
+/**
+ * dmx を
+ * 
+ */
+async dmxSend(portName: string, values: number[]) : Promise<Result<null, string>> {
     try {
-    return { status: "ok", data: await TAURI_INVOKE("dmx_stop", { portName }) };
+    return { status: "ok", data: await TAURI_INVOKE("dmx_send", { portName, values }) };
+} catch (e) {
+    if(e instanceof Error) throw e;
+    else return { status: "error", error: e  as any };
+}
+},
+async dmxReset(portName: string) : Promise<Result<null, string>> {
+    try {
+    return { status: "ok", data: await TAURI_INVOKE("dmx_reset", { portName }) };
 } catch (e) {
     if(e instanceof Error) throw e;
     else return { status: "error", error: e  as any };
@@ -24,14 +36,6 @@ async dmxStop(portName: string) : Promise<Result<null, string>> {
 async getUsbDevices() : Promise<Result<DeviceInfo[], string>> {
     try {
     return { status: "ok", data: await TAURI_INVOKE("get_usb_devices") };
-} catch (e) {
-    if(e instanceof Error) throw e;
-    else return { status: "error", error: e  as any };
-}
-},
-async getProjects() : Promise<Result<Project[], string>> {
-    try {
-    return { status: "ok", data: await TAURI_INVOKE("get_projects") };
 } catch (e) {
     if(e instanceof Error) throw e;
     else return { status: "error", error: e  as any };
