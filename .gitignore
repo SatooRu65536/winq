@@ -30,3 +30,6 @@ pnpm-lock.yaml
 *.sw?
 
 *.module.scss.d.ts
+
+*storybook.log
+src/stories

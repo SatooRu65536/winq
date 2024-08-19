@@ -5,6 +5,9 @@
 
 
 export const commands = {
+/**
+ * プロジェクトを取得します
+ */
 async getProjects() : Promise<Result<Project[], string>> {
     try {
     return { status: "ok", data: await TAURI_INVOKE("get_projects") };
@@ -14,8 +17,7 @@ async getProjects() : Promise<Result<Project[], string>> {
 }
 },
 /**
- * dmx を
- * 
+ * dmx で送信します
  */
 async dmxSend(portName: string, values: number[]) : Promise<Result<null, string>> {
     try {
@@ -25,6 +27,9 @@ async dmxSend(portName: string, values: number[]) : Promise<Result<null, string>
     else return { status: "error", error: e  as any };
 }
 },
+/**
+ * dmx で全て0を送信します
+ */
 async dmxReset(portName: string) : Promise<Result<null, string>> {
     try {
     return { status: "ok", data: await TAURI_INVOKE("dmx_reset", { portName }) };
@@ -33,6 +38,9 @@ async dmxReset(portName: string) : Promise<Result<null, string>> {
     else return { status: "error", error: e  as any };
 }
 },
+/**
+ * USBデバイスを取得します
+ */
 async getUsbDevices() : Promise<Result<DeviceInfo[], string>> {
     try {
     return { status: "ok", data: await TAURI_INVOKE("get_usb_devices") };
