@@ -13,10 +13,7 @@ pub struct DeviceInfo {
 pub fn get_usb_devices_() -> Result<Vec<DeviceInfo>, String> {
     let mut usbdevice_list: Vec<DeviceInfo> = Vec::new();
 
-    let ports = match available_ports() {
-        Ok(ports) => ports,
-        Err(e) => return Err(e.to_string()),
-    };
+    let ports = available_ports().map_err(|e| e.to_string())?;
 
     for port in ports {
         if !port.port_name.starts_with("/dev/tty") {

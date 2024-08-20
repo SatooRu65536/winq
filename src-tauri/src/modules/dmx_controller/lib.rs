@@ -11,10 +11,7 @@ pub fn dmx_send_(port_name: &str, values: Vec<u8>) -> Result<(), String> {
 
     // DMXSerial インスタンスがまだ生成されていない場合、作成
     if dmx_guard.is_none() {
-        let dmx = match DMXSerial::open(port_name) {
-            Ok(dmx) => dmx,
-            Err(e) => return Err(e.to_string()),
-        };
+        let dmx = DMXSerial::open(port_name).map_err(|e| e.to_string())?;
         *dmx_guard = Some(dmx);
     }
 
@@ -22,10 +19,7 @@ pub fn dmx_send_(port_name: &str, values: Vec<u8>) -> Result<(), String> {
     let dmx = dmx_guard.as_mut().unwrap();
 
     // values を &[u8; 512] に拡張
-    let ch = match vec_to_array(values) {
-        Ok(ch) => ch,
-        Err(e) => return Err(e.to_string()),
-    };
+    let ch = vec_to_array(values).map_err(|e| e.to_string())?;
 
     dmx.set_channels(ch);
 
@@ -39,10 +33,7 @@ pub fn dmx_reset_(port_name: &str) -> Result<(), String> {
 
     // DMXSerial インスタンスがまだ生成されていない場合、作成
     if dmx_guard.is_none() {
-        let dmx = match DMXSerial::open(port_name) {
-            Ok(dmx) => dmx,
-            Err(e) => return Err(e.to_string()),
-        };
+        let dmx = DMXSerial::open(port_name).map_err(|e| e.to_string())?;
         *dmx_guard = Some(dmx);
     }
 
